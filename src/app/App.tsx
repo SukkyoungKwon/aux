@@ -11,7 +11,6 @@ import { stagesKo } from './data/stagesDataKo';
 import { StageCard } from './components/StageCard';
 import { AIGuidelinesPanel } from './components/AIGuidelinesPanel';
 import { ProjectTypeMatrix } from './components/ProjectTypeMatrix';
-import { DashboardOverview } from './components/DashboardOverview';
 import { SearchFilter } from './components/SearchFilter';
 import { ProcessTimeline } from './components/ProcessTimeline';
 import { ProcessProgress } from './components/ProcessProgress';
@@ -124,6 +123,18 @@ export default function App() {
   const handleProjectSetupComplete = (config: ProjectConfig) => {
     setProjectConfig(config);
     setSelectedTab(0); // Go to first filtered stage
+  };
+
+  const getTotalWeeks = (): number | undefined => {
+    if (!projectConfig) return undefined;
+    switch (projectConfig.duration) {
+      case '2weeks': return 2;
+      case '1month': return 4;
+      case '3months': return 13;
+      case '6months': return 26;
+      case '6months+': return 30;
+      default: return undefined;
+    }
   };
 
   const renderContent = () => {
@@ -259,6 +270,7 @@ export default function App() {
                   onStageClick={handleStageClick}
                   language={language}
                   filteredStages={getFilteredStages()}
+                  totalWeeks={getTotalWeeks()}
                 />
               </Container>
             </Box>
@@ -354,10 +366,7 @@ export default function App() {
           }}
         >
           <Container maxWidth="xl">
-            <Typography variant="body2" align="center" sx={{ fontWeight: 600, opacity: 0.95 }}>
-              {t.footerText.replace('8', (language === 'ko' ? stagesKo : stages).length.toString())}
-            </Typography>
-            <Typography variant="caption" align="center" sx={{ display: 'block', mt: 1, opacity: 0.85 }}>
+            <Typography variant="caption" align="center" sx={{ display: 'block', opacity: 0.85 }}>
               {t.footerWarning}
             </Typography>
           </Container>

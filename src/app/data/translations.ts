@@ -3,7 +3,7 @@ export type Language = 'ko' | 'en';
 export const translations = {
   ko: {
     // Header
-    appTitle: 'UX 서비스 플랫폼',
+    appTitle: 'With AI',
     appSubtitle: 'AI 기반 8단계 디자인 프로세스',
     deliverables: '산출물',
 

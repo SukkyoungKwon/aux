@@ -123,7 +123,7 @@ export function ProjectSetup({ language, onComplete }: ProjectSetupProps) {
         <CardContent sx={{ p: 4 }}>
           <Box sx={{ mb: 4 }}>
             <Typography variant="h4" sx={{ mb: 1, fontWeight: 700 }}>
-              {language === 'ko' ? '프로젝트를 시작합니다' : 'Start Your Project'}
+              {language === 'ko' ? 'AI와 함께 프로젝트를 시작하세요.' : 'Start Your Project with AI'}
             </Typography>
             <Typography variant="body1" color="text.secondary">
               {language === 'ko' ? '3가지만 알려주세요' : 'Tell us 3 things'}
@@ -254,10 +254,6 @@ export function ProjectSetup({ language, onComplete }: ProjectSetupProps) {
 
           {/* Stage Preview */}
           <Box>
-            <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
-              {language === 'ko' ? '단계별 미리보기' : 'Stage Preview'}
-            </Typography>
-
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
               {getRelevantStages().map((stage, idx) => (
                 <Box

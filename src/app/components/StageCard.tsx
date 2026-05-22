@@ -76,36 +76,6 @@ export function StageCard({ stage, language }: StageCardProps) {
           <Typography variant="h6" sx={{ opacity: 0.95, maxWidth: 800, lineHeight: 1.7, fontWeight: 400 }}>
             {currentStage.description}
           </Typography>
-
-          {/* Quick Stats */}
-          <Box sx={{ display: 'flex', gap: 3, mt: 3 }}>
-            <Box sx={{
-              bgcolor: 'rgba(255,255,255,0.15)',
-              px: 3,
-              py: 1.5,
-              borderRadius: 2,
-            }}>
-              <Typography variant="caption" sx={{ opacity: 0.9, display: 'block', mb: 0.5 }}>
-                {t.deliverables}
-              </Typography>
-              <Typography variant="h4" sx={{ fontWeight: 700 }}>
-                {currentStage.deliverables.length}
-              </Typography>
-            </Box>
-            <Box sx={{
-              bgcolor: 'rgba(255,255,255,0.15)',
-              px: 3,
-              py: 1.5,
-              borderRadius: 2,
-            }}>
-              <Typography variant="caption" sx={{ opacity: 0.9, display: 'block', mb: 0.5 }}>
-                {t.activities}
-              </Typography>
-              <Typography variant="h4" sx={{ fontWeight: 700 }}>
-                {currentStage.collaborativeActivities.length}
-              </Typography>
-            </Box>
-          </Box>
         </Box>
       </Box>
 
